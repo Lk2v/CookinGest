@@ -31,10 +31,10 @@ Projet étudiant, platforme de commande de nourriture communautaire.
 > Page historique des commandes
 
 ![Screenshot](/Documentation/Screenshots/7.png)
-> Page d'acceuil de commande
+> Onglet administration : Top client & Top créateur
 
 ![Screenshot](/Documentation/Screenshots/8.png)
-> Page créateur
+> Onglet administration : Liste ingrédients
 
 ![Screenshot](/Documentation/Screenshots/9.png)
-> Page historique des commandes
+> Onglet administration : Liste des fournisseurs
