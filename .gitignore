@@ -3,6 +3,7 @@
 
 # Ignorer le dossier .vs (dossier de Visual Studio)
 /.vs/
+/.vscode/
 
 # Ignorer le dossier objet (dossier de build)
 /obj/
