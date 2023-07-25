@@ -14,3 +14,9 @@ Projet étudiant, platforme de commande de nourriture communautaire.
 
 ![Screenshot](/Documentation/Screenshots/1.png)
 > Page d'acceuil de commande
+
+![Screenshot](/Documentation/Screenshots/2.png)
+> Page créateur
+
+![Screenshot](/Documentation/Screenshots/3.png)
+> Page historique des commandes
