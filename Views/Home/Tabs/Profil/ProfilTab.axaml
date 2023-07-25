@@ -1,0 +1,44 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CookinGest.Views.Home.Tabs.ProfilTab"
+
+             xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+             xmlns:components="clr-namespace:CookinGest.Components"
+>
+      <Border Padding="30">
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Vertical">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Classes="h3" Grid.Column="0" Text="{Binding Client.Denomination}" HorizontalAlignment="Stretch"/>
+                <Button Classes="translucid" Grid.Column="1" Command="{Binding LogOut}">
+                    <StackPanel Orientation="Horizontal">
+                        <i:Icon FontSize="16" Value="fa-solid fa-arrow-right-from-bracket" Margin="0,0,10,0"/>
+                        <TextBlock Text="Deconnexion"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+            
+            <StackPanel Orientation="Vertical" Margin="0, 25, 0, 0">
+
+                
+                <components:ItemRow Title="Prenom" Value="{Binding Client.Prenom}"/>
+                <components:ItemRow Title="Nom"  Value="{Binding Client.Nom}"/>
+
+                <components:ItemRow Title="Mail"  Value="{Binding Client.Mail}"/>
+
+                <components:ItemRow Title="Telephone"  Value="{Binding Client.Telephone}"/>
+
+                <components:ItemRow Title="Adresse"  Value="{Binding Client.Adresse}"/>
+
+            </StackPanel>
+            
+         </StackPanel>
+     </Border>
+</UserControl>

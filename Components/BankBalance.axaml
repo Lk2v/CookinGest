@@ -1,0 +1,37 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:CookinGest.Components"
+
+        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+>
+
+    <Design.PreviewWith>
+        <controls:BankBalance />
+    </Design.PreviewWith>
+
+    
+
+    <Style Selector="controls|BankBalance">
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Margin="5,0,5,0">
+                    <Button Classes="translucid" BorderBrush="#30FFFFFF" BorderThickness="1" CornerRadius="50" ClipToBounds="True" Command="{TemplateBinding Command}"  CommandParameter="{TemplateBinding CommandParameter}">
+                        <Border Padding="10, 0">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                                <i:Icon FontSize="16" Value="fa-solid fa-building-columns" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0"/>
+
+                                <TextBlock Classes="bold" FontSize="12" Text="{TemplateBinding Value, Converter={StaticResource IntToStringConverter}}}" Grid.Column="1" VerticalAlignment="Center" />
+                                <TextBlock Classes="bold" FontSize="12" Text="€" VerticalAlignment="Center" />
+
+                                
+                                <i:Icon FontSize="12" Value="fa-solid fa-chevron-right" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </Border>
+                    </Button>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

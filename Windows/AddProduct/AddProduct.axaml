@@ -1,0 +1,105 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="CookinGest.Windows.AddProduct.AddProductWindow"
+        Title="Ajouter un ingrédient"
+
+        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+
+        Width="350"
+        Height="400"
+
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+
+>
+    
+
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+                <ScrollViewer Grid.Row="0">
+                    <Grid Margin="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Row="0" Text="{Binding ProductTitle}" MaxLength="30" Watermark="Nom de l'ingrédient" Margin="5" />
+                        <TextBox Grid.Row="1" Text="{Binding ShortDescription}" MaxLength="255" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="50" Watermark="Courte description..." Margin="5" />
+
+                        <TextBlock Grid.Row="2" Classes="h4" Text="Categorie" Margin="5" />
+                        <ComboBox Items="{Binding ListCat}" Grid.Row="3" SelectedItem="{Binding SelectedCat}" HorizontalAlignment="Stretch" Margin="5">
+                            <ComboBox.ItemTemplate>
+                              <DataTemplate>
+                                <TextBlock Text="{Binding Nom}" />
+                              </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                        <TextBlock Grid.Row="4" Classes="h4" Text="Stock" Margin="5" />
+                        <ComboBox Items="{Binding ListFourn}" Grid.Row="5" SelectedItem="{Binding SelectedFourn}" HorizontalAlignment="Stretch" Margin="5">
+                            <ComboBox.ItemTemplate>
+                              <DataTemplate>
+                                <TextBlock Text="{Binding Nom}" />
+                              </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <NumericUpDown Grid.Column="0" Value="{Binding CurrentStock}" Classes="translucid" Minimum="0" ShowButtonSpinner="False" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="/" VerticalAlignment="Center"/>
+                            <NumericUpDown Grid.Column="2" Value="{Binding MaxStock}" Classes="translucid" Minimum="0" ShowButtonSpinner="False" VerticalAlignment="Center"/>
+                        </Grid>
+
+                        <TextBlock Grid.Row="7" Classes="h4" Text="Prix" Margin="5" />
+                        <Grid Grid.Row="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <NumericUpDown Grid.Column="0" Value="{Binding ProductPrice}" Classes="translucid" Grid.Row="7" Minimum="0" Maximum="100" ShowButtonSpinner="False" HorizontalAlignment="Stretch"/>
+                            <TextBlock Grid.Column="1" Text="€" VerticalAlignment="Center" Margin="15, 0"/>
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+
+            <Button Grid.Row="1" Classes="primary" Content="Envoyer" Command="{Binding Submit}" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Margin="25, 0, 25, 25" />
+        </Grid>
+    </Panel>
+
+</Window>

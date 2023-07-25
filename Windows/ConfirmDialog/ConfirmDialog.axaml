@@ -1,0 +1,54 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="CookinGest.Windows.ConfirmDialog.ConfirmDialogWindow"
+        Title="Compte bancaire"
+
+        Width="450"
+        Height="250"
+        CanResize="False"
+
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+
+        ExtendClientAreaToDecorationsHint="True"
+>
+    
+
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <Panel Margin="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="4">
+
+                    <TextBlock Classes="h2" HorizontalAlignment="Center" Text="{Binding Title}"/>
+                    <TextBlock Classes="secondary" HorizontalAlignment="Center" Text="{Binding Message}"/>
+
+                </StackPanel>
+                
+                <StackPanel Grid.Row="1">
+                    <Button Command="{Binding ConfirmReq}" Classes="primary" HorizontalAlignment="Stretch" Content="Confirmer" />
+                </StackPanel>
+                
+            </Grid>
+        </Panel>
+    </Panel>
+
+</Window>

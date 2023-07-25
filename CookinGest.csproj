@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <TrimmerRootAssembly Include="Avalonia.Themes.Fluent" />
+  </ItemGroup>
+
+  
+  <!---->
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+    <AdditionalFiles Include="**\*.xaml" />
+  </ItemGroup>
+  <!---->
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.19" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.19" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.19" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.19" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.19" />
+    <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome" Version="5.12.0" />
+    <PackageReference Include="XamlNameReferenceGenerator" Version="1.6.1" />
+    <PackageReference Include="MySql.Data" Version="8.0.32.1" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="ViewModels\" />
+    <None Remove="Views\Home\Tabs\" />
+    <None Remove="Views\Home\Tabs\Order\" />
+    <None Remove="Views\Home\Tabs\Creator\" />
+    <None Remove="Components\" />
+    <None Remove="Styles\" />
+    <None Remove="Views\Home\Tabs\AdminDashboard\" />
+    <None Remove="Views\Home\Tabs\AdminDashboard\Boards\" />
+    <None Remove="Windows\" />
+    <None Remove="Windows\PublishRecipe\" />
+    <None Remove="Views\Home\Tabs\AdminDashboard\Boards\Clients %28copier%29\" />
+    <None Remove="Assets\" />
+    <None Remove="src\StoreConnections\" />
+    <None Remove="Views\Connection\Views\" />
+    <None Remove="Views\Connection\Views\Login\" />
+    <None Remove="Views\Connection\Views\Register\" />
+    <None Remove="Windows\ShowRecipesByProduct %28copier%29\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\Home\Tabs\" />
+    <Folder Include="Views\Home\Tabs\Order\" />
+    <Folder Include="Views\Home\Tabs\Creator\" />
+    <Folder Include="Components\" />
+    <Folder Include="Styles\" />
+    <Folder Include="Views\Home\Tabs\AdminDashboard\" />
+    <Folder Include="Views\Home\Tabs\AdminDashboard\Boards\" />
+    <Folder Include="Windows\" />
+    <Folder Include="Windows\PublishRecipe\" />
+    <Folder Include="Windows\BankAccount\" />
+    <Folder Include="Assets\" />
+    <Folder Include="src\StoreConnections\" />
+    <Folder Include="Views\Connection\Views\" />
+    <Folder Include="Views\Connection\Views\Login\" />
+    <Folder Include="Views\Connection\Views\Register\" />
+    <Folder Include="Windows\ShowRecipesByProduct\" />
+    <Folder Include="Windows\ShowCreatorRecipeOrderHistory\" />
+  </ItemGroup>
+</Project>

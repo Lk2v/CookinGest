@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+             x:Class="CookinGest.Views.Home.Tabs.HistoryTab"
+
+             xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+            
+
+            xmlns:components="clr-namespace:CookinGest.Components"
+>
+               
+    <Panel>
+
+
+        <Border Padding="30">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <TextBlock Classes="h3" Text="Historique de vos commandes"/>
+                </StackPanel>
+                <Border Margin="0,12" Grid.Row="1">
+                        <Grid>
+                            <DataGrid Name="OrderHistory" Items="{Binding HistoryList}" IsReadOnly="True" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Nom recette"  Binding="{Binding NomRecette}"/>
+
+                                    <DataGridTextColumn Header="Prix (€)" Binding="{Binding Prix}" />
+
+                                    <DataGridTextColumn Header="Date de commande" Binding="{Binding Date}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                </Border>
+            </Grid>
+         </Border>
+    </Panel>
+</UserControl>

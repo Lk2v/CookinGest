@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CookinGest.Views.Home.Tabs.AdminDashboard.Boards.StatsBoard"
+
+             xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+
+            xmlns:components="clr-namespace:CookinGest.Components"
+>
+    <!--
+        Cdr de la semaine
+        Top 5 de la semaine << pas besoin deja dans order
+        Client de la semaine
+    -->
+    <StackPanel Orientation="Vertical">
+
+        <components:TopSection Title="Client de la semaine">
+            <ItemsControl Items="{Binding TopClients}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <components:TopClient Index="{Binding Index}" FirstName="{Binding Data.Prenom}" LastName="{Binding Data.Nom}" Initiale="{Binding Data.Initiale}" SubTitle="{Binding Data.MontantDepense, StringFormat='{}{0}€ depensé(s)'}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </components:TopSection>
+
+        <components:TopSection Title="Createur de la semaine">
+            <ItemsControl Items="{Binding TopCreator}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <components:TopClient Index="{Binding Index}" FirstName="{Binding Data.Prenom}" LastName="{Binding Data.Nom}" Initiale="{Binding Data.Initiale}" SubTitle="{Binding Data.BeneficeSemaine, StringFormat='{}{0}€ benefice'}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </components:TopSection>
+
+    </StackPanel>
+
+    
+</UserControl>

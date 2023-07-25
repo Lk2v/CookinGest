@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CookinGest.Views.Home.Tabs.AdminDashboard.Boards.SuppliersBoard"
+
+             xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+
+            xmlns:components="clr-namespace:CookinGest.Components"
+>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Classes="secondary" Text="{Binding Data.Count, StringFormat='{}{0} Fournisseurs'}" Grid.Row="0" Margin="0,10"/>
+
+        <Grid Grid.Row="1">
+            <DataGrid Name="SuppliersGrid" Items="{Binding Data}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Nom"  Binding="{Binding Nom}"/>
+                    <DataGridTextColumn Header="Numero Siret" Binding="{Binding NumSiret}" />
+
+                     <DataGridTextColumn Header="Adresse" Binding="{Binding Adresse}" />
+                     <DataGridTextColumn Header="Telephone" Binding="{Binding Telephone}" />
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+
+</UserControl>

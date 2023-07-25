@@ -1,0 +1,63 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:CookinGest.Components"
+
+        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+>
+
+    <Design.PreviewWith>
+        <controls:TopClient />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|TopClient TextBlock.id">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%"> 
+                    <GradientStop Color="Yellow" Offset="0" />
+                    <GradientStop Color="Orange" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style Selector="controls|TopClient">
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Margin="10,5,10,5">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                            
+                            <TextBlock Classes="id"  FontWeight="Bold" Text="{TemplateBinding Index, Converter={StaticResource IntToStringConverter}}}"/>
+                            <TextBlock Classes="id" Text="."/>
+                        </StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+    
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Row="0" Width="50" Height="50" Background="#50FFFFFF" CornerRadius="100">
+                                <TextBlock Classes="bold" Text="{TemplateBinding Initiale}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>        
+
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+                                <TextBlock Text="{TemplateBinding FirstName}"/>
+                                <TextBlock Text=" "/>
+                                <TextBlock Text="{TemplateBinding LastName}"/>
+                            </StackPanel>
+
+                            <TextBlock Grid.Row="2" Classes="secondary" Text="{TemplateBinding SubTitle}" HorizontalAlignment="Center" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

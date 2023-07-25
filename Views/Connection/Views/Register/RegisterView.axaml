@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CookinGest.Views.Connection.Views.RegisterView">
+
+    <Grid HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Classes="h4" Text="Inscription" Margin="0,0,0,10"/>
+
+            <TextBox x:Name="FirstNameTextBox" Text="{Binding FirstName}" MaxLength="30" Watermark="Prénom" Grid.Column="0" Grid.Row="1" Margin="0 0 5 8"/>
+            <TextBox x:Name="LastNameTextBox" Text="{Binding LastName}" MaxLength="30" Watermark="Nom" Grid.Column="1" Grid.Row="1" Margin="5 0 0 8"/>
+            
+            <TextBox x:Name="EmailBox" Text="{Binding Email}" Watermark="Email" MaxLength="100" Margin="0 0 0 8" Grid.ColumnSpan="2" Grid.Row="2"/>
+
+            <TextBox x:Name="PasswordBox" Text="{Binding Password}" Watermark="Mot de passe" MaxLength="100" Margin="0 0 0 8" PasswordChar="*" Grid.ColumnSpan="2" Grid.Row="3"/>
+            <MaskedTextBox Mask="(+33) 00 00 00 00 00" x:Name="TelephoneBox" Text="{Binding Telephone}"  Margin="0 0 0 8" Grid.ColumnSpan="2" Grid.Row="4"/>
+           
+            
+            <TextBox x:Name="AdresseBox" Text="{Binding Adresse}" Watermark="Adresse de livraison" MaxLength="100" Margin="0 0 0 8" Grid.ColumnSpan="2" Grid.Row="5"/>
+            
+    
+            <Button x:Name="RegisterButton" Content="S'inscrire" Command="{Binding RegisterCommand}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Grid.Row="8" Grid.ColumnSpan="2"/>
+        </Grid>
+</UserControl>

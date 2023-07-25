@@ -1,0 +1,41 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:CookinGest.Components"
+
+        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+>
+
+    <Design.PreviewWith>
+        <controls:IconButtonBig />
+    </Design.PreviewWith>
+
+    
+
+    <Style Selector="controls|IconButtonBig">
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Margin="10,5,10,5">
+                    <Button Classes="translucid" Command="{TemplateBinding Command}" CornerRadius="12" CommandParameter="{TemplateBinding CommandParameter}">
+                        <Border Height="60" Width="60" >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+    
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <i:Icon FontSize="20" Value="{TemplateBinding Icon}" Grid.Row="0" Grid.Column="0"/>
+
+                                <TextBlock Classes="bold" Text="{TemplateBinding Title}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                    </Button>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

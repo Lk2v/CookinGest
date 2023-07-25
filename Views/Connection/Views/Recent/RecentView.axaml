@@ -1,0 +1,80 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+
+             xmlns:vm="clr-namespace:CookinGest.ViewModels"
+             xmlns:components="clr-namespace:CookinGest.Components"
+             xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+
+             x:Class="CookinGest.Views.Connection.Views.RecentView"
+>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Classes="h4" Text="Connexions récente"  VerticalAlignment="Center"/>
+
+            <components:IconButton Grid.Row="0"  Grid.Column="1" Icon="fa-trash" Command="{Binding ToggleDeleteMode}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        </Grid>
+        
+
+        <ScrollViewer Grid.Row="1">
+                <ItemsControl Background="Transparent" Items="{Binding ListAccounts}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Classes="translucid" Grid.Column="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                                Padding="10"
+                                Command="{Binding DataContext.SelectAccount, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding }"
+                            >
+                                <Grid Margin="0,5" HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                         <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0" Background="#20FFFFFF" Width="32" Height="32" CornerRadius="100" Margin="0,0,8,0"/>
+
+                                    <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Stretch">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Classes="bold" Text="{Binding Prenom}"/>
+                                            <TextBlock Text=" "/>
+                                            <TextBlock Classes="bold" Text="{Binding Nom}"/>
+                                        </StackPanel>
+                                        <TextBlock Classes="secondary" Text="{Binding Mail}"/>
+                                    </StackPanel>
+                                    <components:IconButton Grid.Column="2" IsVisible="{Binding DataContext.DeleteMode, RelativeSource={RelativeSource AncestorType=UserControl}}" Icon="fa-xmark" IconSize="12" Command="{Binding DataContext.DeleteFromListAccount, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding }"/>
+                                </Grid>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                
+        </ScrollViewer>
+
+        <Button Grid.Row="2" Classes="translucid" HorizontalAlignment="Stretch" Command="{Binding Login}" Margin="0,20,0,0">
+            <StackPanel Orientation="Horizontal">
+                <i:Icon FontSize="16" Value="fa-plus"/>
+                <TextBlock Classes="bold" Text="Ajouter un compte" Margin="10 ,0, 0, 0"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>

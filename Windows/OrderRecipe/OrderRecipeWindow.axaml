@@ -1,0 +1,64 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="CookinGest.Windows.OrderRecipe.OrderRecipeWindow"
+        Title="Commander recette"
+
+        Width="450"
+        Height="250"
+        CanResize="False"
+
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+
+        ExtendClientAreaToDecorationsHint="True"
+>
+    
+
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <Panel Margin="20">
+            
+
+            <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Classes="h2" Text="Effectuer cette commande ?" HorizontalAlignment="Center"/>
+                        
+                        <TextBlock Text="{Binding SubTitle}" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5" HorizontalAlignment="Stretch" Spacing="5">
+                        <ComboBox SelectedIndex="{Binding SelectedPaymentMethod}" HorizontalAlignment="Stretch">
+                            <ComboBoxItem>Solde bancaire</ComboBoxItem>
+                            <ComboBoxItem>Solde créateur</ComboBoxItem>
+                        </ComboBox>
+
+                        <Button Classes="primary"
+                            Content="{Binding Price}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Command="{Binding SubmitOrder}"
+                            HorizontalContentAlignment="Center"
+                        />
+                    </StackPanel>
+                    
+                </Grid>
+        </Panel>
+    </Panel>
+
+</Window>

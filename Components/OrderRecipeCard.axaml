@@ -1,0 +1,45 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:CookinGest.Components"
+
+        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+>
+
+    <Design.PreviewWith>
+        <controls:OrderRecipeCard/>
+    </Design.PreviewWith>
+
+    <Style Selector="controls|OrderRecipeCard">
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Button Background="#30000000" CornerRadius="6" Margin="8" Padding="0" Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}">
+                    <Border Width="250" Height="125">
+                        <Panel>
+                            <Border Background="{DynamicResource Blue}" Padding="8" CornerRadius="0,6,0,8" VerticalAlignment="Top" HorizontalAlignment="Right">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{TemplateBinding Price, Converter={StaticResource DecimalToStringConverter}}}"/>
+                                    <TextBlock Text="€"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Padding="20">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+    
+                                    <TextBlock Grid.Row="0" Classes="h4" Text="{TemplateBinding Title}" TextWrapping="Wrap" MaxLines="2"/>
+                                    <TextBlock Grid.Row="1" Text="{TemplateBinding Description}" VerticalAlignment="Stretch"/>
+                                    <TextBlock Grid.Row="2" Classes="secondary" Text="{TemplateBinding ProductsList}" TextWrapping="Wrap" MaxLines="2"/>
+                                </Grid>
+                            </Border>
+                        </Panel>
+                    </Border>
+                </Button>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+</Styles>

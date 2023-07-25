@@ -1,0 +1,56 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:rxui="clr-namespace:Avalonia.ReactiveUI;assembly=Avalonia.ReactiveUI"
+
+        xmlns:app="clr-namespace:CookinGest"
+
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="CookinGest.MainWindow"
+        Title="CookinGest"
+
+        xmlns:views="clr-namespace:CookinGest.Views"
+
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+
+
+        WindowStartupLocation="CenterScreen"
+>
+    <Panel>
+        <Panel>
+               <ExperimentalAcrylicBorder IsHitTestVisible="False">
+                   <ExperimentalAcrylicBorder.Material>
+                       <ExperimentalAcrylicMaterial
+                           BackgroundSource="Digger"
+                           TintColor="Black"
+                           TintOpacity="1"
+                           MaterialOpacity="0.65" />
+                   </ExperimentalAcrylicBorder.Material>
+               </ExperimentalAcrylicBorder>
+        </Panel>
+
+        <Panel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <rxui:RoutedViewHost Router="{Binding Router}">
+                    <rxui:RoutedViewHost.DefaultContent>
+                        <TextBlock Text="Default content"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </rxui:RoutedViewHost.DefaultContent>
+                    <rxui:RoutedViewHost.ViewLocator>
+                        <!-- See AppViewLocator.cs section below -->
+                        <app:AppViewLocator />
+                    </rxui:RoutedViewHost.ViewLocator>
+                </rxui:RoutedViewHost>
+            </Grid>
+        </Panel>
+    </Panel>
+
+
+    
+</Window>

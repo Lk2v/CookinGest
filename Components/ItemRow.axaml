@@ -1,0 +1,24 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:CookinGest.Components"
+
+        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+>
+
+    <Design.PreviewWith>
+        <controls:ItemRow/>
+    </Design.PreviewWith>
+
+    <Style Selector="controls|ItemRow">
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10" Spacing="25">
+                    <TextBlock Classes="secondary" Text="{TemplateBinding Title}" VerticalAlignment="Center"/>
+                    <TextBlock Text="{TemplateBinding Value}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+</Styles>

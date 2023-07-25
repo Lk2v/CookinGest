@@ -1,0 +1,70 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CookinGest.Views.Home.Tabs.AdminDashboard.Boards.ClientsBoard"
+
+             xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+
+            xmlns:components="clr-namespace:CookinGest.Components"
+>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,10">
+            <TextBlock Classes="secondary" Text="{Binding Data.Count, StringFormat='{}{0} Clients'}" />
+            <TextBlock Classes="secondary" Text=" • "/>
+            <TextBlock Classes="secondary" Text="{Binding CreatorAmount, StringFormat='{}{0} Créateurs'}"/>
+        </StackPanel>
+        
+
+        <Grid Grid.Row="1">
+            <DataGrid Name="ClientsGrid" Items="{Binding Data}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Prenom"  Binding="{Binding Prenom}"/>
+                    <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" />
+
+                     <DataGridTextColumn Header="Mail" Binding="{Binding Mail}" />
+
+                     <DataGridTextColumn Header="Telephone" Binding="{Binding Telephone}" />
+                     <DataGridTextColumn Header="Adresse" Binding="{Binding Adresse}" />
+
+                     <DataGridTextColumn Header="Solde Banquaire" Binding="{Binding SoldeBanque}" />
+
+                     <DataGridTemplateColumn Header="Createur">
+                          <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <components:IconButton IsVisible="{Binding EstCreateur}"  Icon="fa-arrow-up-right-from-square" Command="{Binding DataContext.CreatorStats, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" VerticalAlignment="Center"/>
+                                    
+                                    <TextBlock Text="Non" IsVisible="{Binding !EstCreateur}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                    
+                            </DataTemplate>
+                          </DataGridTemplateColumn.CellTemplate>
+                     </DataGridTemplateColumn>
+
+                     <DataGridTemplateColumn Header="Action">
+                          <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <components:IconButton Icon="fa-crown" Command="{Binding DataContext.PromoteAdmin, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Id}" IsVisible="{Binding !EstAdmin}"/>
+
+                                        
+                                        <components:IconButton Icon="fa-trash" Command="{Binding DataContext.DeleteClientReq, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Id}"/>
+                                      
+                                    </StackPanel>
+                            </DataTemplate>
+                          </DataGridTemplateColumn.CellTemplate>
+                     </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

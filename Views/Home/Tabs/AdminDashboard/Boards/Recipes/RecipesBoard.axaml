@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CookinGest.Views.Home.Tabs.AdminDashboard.Boards.RecipesBoard"
+
+             xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+
+            xmlns:components="clr-namespace:CookinGest.Components"
+>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Classes="secondary" Text="{Binding Data.Count, StringFormat='{}{0} Recettes'}" Grid.Row="0" Margin="0,10"/>        
+
+        <Grid Grid.Row="1">
+            <DataGrid Name="RecipesGrid" Items="{Binding Data}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="CreateurId"  Binding="{Binding CreateurId}"/>
+                    <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" />
+
+                     <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+
+                     <DataGridTextColumn Header="Ingredients" Binding="{Binding Ingredients}" />
+
+                     <DataGridTextColumn Header="Prix" Binding="{Binding Prix}" />
+
+                     <DataGridTextColumn Header="Date" Binding="{Binding Date}" />
+
+                     <DataGridTemplateColumn Header="Action">
+                          <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                    <components:IconButton Icon="fa-trash" Command="{Binding DataContext.DeleteRecipeReq, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding }"/>
+                            </DataTemplate>
+                          </DataGridTemplateColumn.CellTemplate>
+                     </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

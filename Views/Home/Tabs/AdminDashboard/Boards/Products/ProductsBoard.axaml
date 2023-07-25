@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CookinGest.Views.Home.Tabs.AdminDashboard.Boards.ProductsBoard"
+
+             xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+
+            xmlns:components="clr-namespace:CookinGest.Components"
+>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+             <TextBlock Classes="secondary" Grid.Column="0" Text="{Binding Data.Count, StringFormat='{}{0} Ingrédients'}"  VerticalAlignment="Center" />
+
+             <components:IconButton Icon="fa-plus" IconSize="10" Grid.Column="2" VerticalAlignment="Center" Command="{Binding AddProduct}"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <DataGrid Name="ProductsGrid" Items="{Binding Data}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="Titre"  Binding="{Binding Titre}"/>
+                    <DataGridTextColumn Header="Catégorie" Binding="{Binding Categorie}" />
+
+                    <DataGridTextColumn Header="Prix" Binding="{Binding Prix}" />
+
+                     <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" />
+                     <DataGridTextColumn Header="Stock min" Binding="{Binding StockMin}" />
+                     <DataGridTextColumn Header="Stock max" Binding="{Binding StockMax}" />
+
+                    <DataGridTemplateColumn Header="Recettes">
+                          <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                    <components:IconButton IsVisible="{Binding RecetteEstAssociee}" Icon="fa-arrow-up-right-from-square" Command="{Binding DataContext.ShowRecipesProduct, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding .}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                          </DataGridTemplateColumn.CellTemplate>
+                     </DataGridTemplateColumn>
+
+                     <DataGridTemplateColumn Header="Status">
+                          <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                    <Button Classes="translucid" IsVisible="{Binding Restock}" Command="{Binding DataContext.RestockProduct, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Id}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <i:Icon FontSize="16" Foreground="{DynamicResource Red}" Value="fa-triangle-exclamation"/>
+                                            <TextBlock Text="Approvisionner" Margin="10 ,0, 0, 0"/>
+                                        </StackPanel>
+                                    </Button>
+                            </DataTemplate>
+                          </DataGridTemplateColumn.CellTemplate>
+                     </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+
+</UserControl>

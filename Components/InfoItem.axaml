@@ -1,0 +1,24 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:CookinGest.Components"
+
+        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+>
+
+    <Design.PreviewWith>
+        <controls:InfoItem/>
+    </Design.PreviewWith>
+
+    <Style Selector="controls|InfoItem">
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Classes="secondary" Text="{TemplateBinding Title}" TextWrapping="Wrap"/>
+                    <TextBlock Classes="h1" Text="{TemplateBinding Value}" TextWrapping="Wrap" Margin="0,0,5,0"/>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+</Styles>

@@ -1,0 +1,82 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="CookinGest.Windows.ShowCreatorStats.ShowCreatorStatsWindow"
+        Title="Profil créateur"
+
+        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+        
+        xmlns:components="clr-namespace:CookinGest.Components"
+
+        Width="500"
+        Height="275"
+        CanResize="False"
+
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+
+        ExtendClientAreaToDecorationsHint="True"
+>
+    
+
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <Grid Margin="25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>    
+
+            <StackPanel Grid.Column="0" Grid.RowSpan="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border Width="125" Height="125" Background="#19A7CE" CornerRadius="100">
+                    <TextBlock FontSize="38" FontWeight="Bold" Foreground="#80FFFFFF" Text="{Binding Data.Initiale}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+                
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+                    <TextBlock Classes="bold" Text="{Binding Data.Prenom}"/>
+                    <TextBlock Classes="bold" Text=" "/>
+                    <TextBlock Classes="bold" Text="{Binding Data.Nom}"/>
+                </StackPanel>
+
+                <TextBlock Classes="secondary" HorizontalAlignment="Center" Text="{Binding Data.Id}"/>
+
+            </StackPanel>
+
+            <Grid Grid.Column="1" Margin="30, 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>   
+            
+                <components:InfoItem Grid.Row="0" Grid.Column="0" Title="recette(s) crée(s)" Value="{Binding Data.NbRecette}"/>
+
+                <components:InfoItem Grid.Row="0" Grid.Column="1" Title="recettes commandée(s)" Value="{Binding Data.NbRecetteCommande}"/>
+
+                <components:InfoItem Grid.Row="1" Grid.Column="0" Title="solde" Value="{Binding Data.Solde}"/>
+            </Grid>
+            
+
+        </Grid>
+    </Panel>
+
+</Window>

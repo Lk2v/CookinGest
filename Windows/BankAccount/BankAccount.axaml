@@ -1,0 +1,58 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="CookinGest.Windows.BankAccount.BankAccountWindow"
+        Title="Compte bancaire"
+
+        Width="450"
+        Height="250"
+        CanResize="False"
+
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+
+        ExtendClientAreaToDecorationsHint="True"
+>
+    
+
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <Panel Margin="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="4">
+                    <TextBlock Classes="secondary" HorizontalAlignment="Center" Text="Votre solde bancaire"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Classes="h1" HorizontalAlignment="Center" Text="{Binding SoldeBank}" />
+                        <TextBlock Classes="h1" HorizontalAlignment="Center" Text=" €" />
+                    </StackPanel>
+                    
+                </StackPanel>
+                
+                <StackPanel Grid.Row="1">
+                    <TextBlock Classes="error" Text="Vous ne pouvez pas recharger le compte car le solde est déjà supérieure à 1000€" TextWrapping="Wrap" IsVisible="{Binding !CanRefill}" TextAlignment="Center" Margin="0,10"/>
+                    <Button Command="{Binding RefillReq}" IsEnabled="{Binding CanRefill}" Classes="primary" HorizontalAlignment="Stretch" Content="Mettre le solde à 1000€" />
+                </StackPanel>
+                
+            </Grid>
+        </Panel>
+    </Panel>
+
+</Window>

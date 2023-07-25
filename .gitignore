@@ -1,0 +1,11 @@
+# Ignorer le dossier bin
+/bin/
+
+# Ignorer le dossier .vs (dossier de Visual Studio)
+/.vs/
+
+# Ignorer le dossier objet (dossier de build)
+/obj/
+
+# Ignorer le fichier .sln (fichier de solution)
+*.sln

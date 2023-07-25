@@ -1,0 +1,62 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="CookinGest.Windows.ShowCreatorRecipeOrderHistory.ShowCreatorRecipeOrderHistoryWindow"
+        Title="Commandes liées à vos recettes"
+
+        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+
+        xmlns:components="clr-namespace:CookinGest.Components"
+
+        Width="600"
+        Height="500"
+
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+
+>
+    
+
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0, 5, 0, 10" Spacing="5">
+                <TextBlock Classes="h3" Text="Liste des commandes de vos recettes"/>
+           
+                <TextBlock Classes="secondary" Text="{Binding List.Count, StringFormat='{}{0} résultat(s)'}"/>
+            </StackPanel>
+            
+
+            <Grid Grid.Row="1">
+                <DataGrid Name="OrderHistory" Items="{Binding List}" IsReadOnly="True" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nom recette"  Binding="{Binding NomRecette}"/>
+
+                        <DataGridTextColumn Header="Gains (pts)" Binding="{Binding GainPtsCreateur}" />
+                        <DataGridTextColumn Header="Prix (€)" Binding="{Binding Prix}" />
+
+                        <DataGridTextColumn Header="Date de commande" Binding="{Binding Date}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            
+        </Grid>
+    </Panel>
+
+</Window>

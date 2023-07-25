@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+
+            xmlns:components="clr-namespace:CookinGest.Components"
+             xmlns:vm="clr-namespace:CookinGest.ViewModels"
+
+             x:Class="CookinGest.Views.Connection.Views.LoginView">
+    
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+        
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+             <components:IconButton Icon="fa-arrow-left" Command="{Binding Back}" IsVisible="{Binding CanGoBack}"/>
+             <TextBlock Grid.Column="0" Classes="h4" Text="Connexion"  VerticalAlignment="Center"/>
+        </StackPanel>
+       
+
+        <TextBlock Classes="bold" Text="Email:" Margin="0 0 0 8" />
+
+        <Panel Margin="0 0 0 16">
+            <TextBox x:Name="EmailTextBox" Text="{Binding Email}" IsVisible="{Binding EmailEnabled}"/>
+            <TextBlock Text="{Binding Email}" IsVisible="{Binding !EmailEnabled}"/>
+        </Panel>
+        
+
+        <TextBlock Classes="bold" Text="Mot de passe:" Margin="0 0 0 8"/>
+        <TextBox x:Name="PasswordBox" Text="{Binding Password}" Margin="0 0 0 16" PasswordChar="*" />
+
+        <Button x:Name="LoginButton" Classes="primary" Content="Se connecter" Command="{Binding LoginCommand}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,56 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="CookinGest.Windows.PublishRecipeWindow"
+        Title="Ajouter une recette"
+
+        Width="525"
+        Height="450"
+        CanResize="False"
+
+        TransparencyLevelHint="AcrylicBlur"
+>
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+            <Panel Margin="20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Row="0" Text="{Binding RecipeTitle}" MaxLength="30" Watermark="Nom de la recette" Margin="5" />
+                    <TextBox Grid.Row="1" Text="{Binding ShortDescription}" MaxLength="255" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="50" Watermark="Courte description..." Margin="5" />
+                    <TextBlock Grid.Row="2" Classes="h4" Text="Ingrédients" Margin="5" />
+                    <ScrollViewer Grid.Row="3" Margin="5" >
+                        <ItemsControl Background="Transparent" Items="{Binding List}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsChecked="{Binding CheckBoxSelect}" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding Titre}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                    <Button Grid.Row="4" Classes="primary" Content="Envoyer" Command="{Binding SubmitRecipe}" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Margin="5" />
+                </Grid>
+            </Panel>
+    </Panel>
+
+</Window>
