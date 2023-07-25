@@ -5,8 +5,6 @@
             
              xmlns:conv="using:CookinGest.src.Converters"
 >
-
-   
     <Application.Styles>
         <FluentTheme Mode="Dark"/>
 
