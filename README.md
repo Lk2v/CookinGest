@@ -22,10 +22,10 @@ Projet étudiant, platforme de commande de nourriture communautaire.
 > Page d'acceuil de commande
 
 ![Screenshot](/Documentation/Screenshots/4.png)
-> Page d'acceuil de commande
+> Page créateur
 
 ![Screenshot](/Documentation/Screenshots/5.png)
-> Page créateur
+> Fenêtre de conversion compte créateur
 
 ![Screenshot](/Documentation/Screenshots/6.png)
 > Page historique des commandes
