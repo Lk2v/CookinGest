@@ -10,3 +10,5 @@
 
 # Ignorer le fichier .sln (fichier de solution)
 *.sln
+
+**/.DS_Store
